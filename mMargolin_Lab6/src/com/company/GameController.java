@@ -9,12 +9,6 @@ import java.io.InputStreamReader;
 public class GameController {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-    public void runTest() {
-        char[][] test = new char[7][6];
-        new Board().printBoard(test, "James", "Cunt");
-
-        new Board().printBoard(test, "A", "B");
-    }
 
     public void run() {
         int userChoice = -1;
