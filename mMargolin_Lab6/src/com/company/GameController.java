@@ -1,6 +1,8 @@
 package com.company;
 
+import models.AIController;
 import models.Board;
+import models.HumanController;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,17 +16,76 @@ public class GameController {
 
     public void run() {
 
-
+  /*
         Board test = new Board();
         test.placePiece("R",3);
         test.placePiece("Y", 3);
         test.printBoard("a", "b");
+ */
+
+        mainMenu();
+
+    }
+
+    public void humanVHuman() {
+        String in;
+        HumanController P1 = new HumanController();
+        HumanController P2 = new HumanController();
+
+        System.out.println("Player one enter name: ");
+
+        in =  input();
+        if (in != "")
+        {
+            P1.setName(in);
+        } else { P1.setName("Human1"); }
+
+        System.out.println("Player two enter name");
+
+        in = input();
+        if (in != "")
+        {
+            P2.setName(in);
+        } else { P2.setName("Human2"); }
+
+    }
+
+    public void humanVComp() {
+        String in;
+        HumanController P1 = new HumanController();
+        AIController P2 = new AIController();
+
+        System.out.println("Player one enter name: ");
+
+        in =  input();
+        if (in != "")
+        {
+            P1.setName(in);
+        } else { P1.setName("Human1"); }
 
 
-        int userChoice = -1;
+    }
+
+    public void compVComp() {
+
+    }
+
+    public void mainMenu() {
+        System.out.println("\n\n");
+        String mainMenu = new StringBuilder("Main Menu\n\n").
+                append("1) Human vs. Human\n").
+                append("2) Human vs. Comp\n").
+                append("3) Comp vs. Comp\n").
+                append("0) Exit\n\n").append("Enter the number of your selection: ").toString();
+        int minOption = 0;
+        int maxOption = 3;
+        int userChoice = promptForInt(mainMenu, minOption, maxOption);
+
 
         do {
-            switch (userChoice) {
+
+            switch (userChoice)
+            {
                 case 1:
                     humanVHuman();
                     break;
@@ -37,29 +98,6 @@ public class GameController {
             }
 
         } while (userChoice > 0);
-    }
-
-    public void humanVHuman() {
-
-    }
-
-    public void humanVComp() {
-
-    }
-
-    public void compVComp() {
-
-    }
-
-    public int mainMenu() {
-        String mainMenu = new StringBuilder("Main Menu\n\n").
-                append("1) Human vs. Human\n").
-                append("2) Human vs. Comp\n").
-                append("3) Comp vs. Comp\n").
-                append("0) Exit\n\n").append("Enter the number of your selection: ").toString();
-        int minOption = 0;
-        int maxOption = 3;
-        return promptForInt(mainMenu, minOption, maxOption);
     }
 
     private int promptForInt(String prompt, int min, int max) {
@@ -89,6 +127,21 @@ public class GameController {
         } while (isInvalid);
 
         return userNum;
+    }
+
+    public String input()
+    {
+        System.out.print("Input: ");
+        String input = "";
+        try
+        {
+            input = bufferedReader.readLine();
+        } catch(Exception e){
+            System.out.println("Slow down there pal lets try that again...");
+        }
+
+        System.out.println(input);
+        return input;
     }
 
     //I think it's fine

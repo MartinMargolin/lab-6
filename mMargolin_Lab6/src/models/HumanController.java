@@ -8,11 +8,12 @@ import java.io.InputStreamReader;
 public class HumanController implements Player
 {
 
-    String name;
+    String name = "Human"; // default
     String color;
     @Override
     public void setName(String in)
     {
+        System.out.println("Your player name is: "  + in);
         name = in;
     }
     @Override

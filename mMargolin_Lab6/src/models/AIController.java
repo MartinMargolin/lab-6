@@ -10,6 +10,7 @@ public class AIController implements Player
     @Override
     public void setName(String in)
     {
+        System.out.println("Your AI name is: " + in);
         name = in;
     }
 
