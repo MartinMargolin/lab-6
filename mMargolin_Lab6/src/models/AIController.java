@@ -22,6 +22,7 @@ public class AIController implements Player
     @Override
     public void setColor(String in)
     {
+        System.out.println("You have chosen color: " + in );
         color = in;
     }
 
