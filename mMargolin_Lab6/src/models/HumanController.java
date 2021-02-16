@@ -7,8 +7,9 @@ import java.io.InputStreamReader;
 
 public class HumanController implements Player
 {
-    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
     String name;
+    String color;
     @Override
     public void setName(String in)
     {
@@ -18,6 +19,11 @@ public class HumanController implements Player
     public String getName()
     {
         return name;
+    }
+    @Override
+    public void setColor(String in)
+    {
+        color = in;
     }
 
 }

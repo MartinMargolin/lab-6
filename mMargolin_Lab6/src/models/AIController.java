@@ -5,6 +5,7 @@ import interfaces.Player;
 public class AIController implements Player
 {
     String name = "AI";  // AI Name is "AI" on Default unless changed
+    String color;
 
     @Override
     public void setName(String in)
@@ -18,8 +19,16 @@ public class AIController implements Player
         return name;
     }
 
+    @Override
+    public void setColor(String in)
+    {
+        color = in;
+    }
+
     public int takeTurn(char[][] in)
     {
         return 0;
     }
+
+
 }
