@@ -6,10 +6,10 @@ public class GameController
 {
     public void run()
     {
-        char[][] test = new char[7][6];
-        new Board().printBoard(test, "James", "Cunt");
+        Board testBoard = new Board();
+        testBoard.placePiece("R", 3,6);
+        testBoard.printBoard("A", "B");
 
-        new Board().printBoard(test, "A", "B");
     }
 
 }
