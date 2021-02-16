@@ -27,7 +27,12 @@ public class AIController implements Player
         color = in;
     }
 
-    public int takeTurn(char[][] in)
+    @Override
+    public String getColor(){
+        return color;
+    }
+
+    public int takeTurn()
     {
         return 0;
     }
