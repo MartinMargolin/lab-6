@@ -14,6 +14,8 @@ public class GameController {
 
     public void run() {
         Board test = new Board();
+        test.placePiece("R",3);
+        test.placePiece("Y", 3);
         test.printBoard("a", "b");
         int userChoice = -1;
 

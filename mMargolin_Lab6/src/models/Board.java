@@ -12,9 +12,21 @@ public class Board {
                     {"0","0","0","0","0","0","0"}
             };
 
-    public void placePiece(String in, int row, int column)
+    public void placePiece(String in, int column)
     {
-        board[row][column] = in;
+        boolean placed = false;
+        int i = 5;
+        do {
+            if (board[i][column-1] != "0")
+            {
+                i--;
+            } else if (board[i][column-1] == "0")
+            {
+                board[i][column-1] = in;
+                placed = true;
+            }
+        } while(placed == false);
+
     }
 
     public void printBoard(String p1, String p2) {
