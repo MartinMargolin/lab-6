@@ -9,6 +9,9 @@ public interface Player
     void setName(String a);
 
     String getColor();
+
     void setColor(String a);
+
+
 
 }

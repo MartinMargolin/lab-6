@@ -48,6 +48,14 @@ public class GameController {
             P2.setName(in);
         } else { P2.setName("Human2"); }
 
+        Board board = new Board();
+        int game = 1;
+        do {
+
+
+
+        } while(game == 1);
+
     }
 
     public void humanVComp() {
@@ -63,11 +71,28 @@ public class GameController {
             P1.setName(in);
         } else { P1.setName("Human1"); }
 
+        Board board = new Board();
+        int game = 1;
+        do {
+
+
+
+        } while(game == 1);
+
 
     }
 
     public void compVComp() {
+        AIController P1 = new AIController();
+        AIController P2 = new AIController();
 
+        Board board = new Board();
+        int game = 1;
+        do {
+
+
+
+        } while(game == 1);
     }
 
     public void mainMenu() {
