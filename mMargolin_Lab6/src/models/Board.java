@@ -2,7 +2,15 @@ package models;
 
 public class Board {
 
-    String[][] board = new String[6][7];
+    String[][] board = new String[][]
+            {
+                    {"0","0","0","0","0","0","0"},
+                    {"0","0","0","0","0","0","0"},
+                    {"0","0","0","0","0","0","0"},
+                    {"0","0","0","0","0","0","0"},
+                    {"0","0","0","0","0","0","0"},
+                    {"0","0","0","0","0","0","0"}
+            };
 
     public void placePiece(String in, int row, int column)
     {
@@ -15,7 +23,7 @@ public class Board {
         for (int a = 0; a < 6; a++) {
             System.out.println();
             for (int i = 0; i < 7; i++) {
-                System.out.print("[" + board + "] ");
+                System.out.print("[" + board[a][i] + "] ");
             }
         }
 
