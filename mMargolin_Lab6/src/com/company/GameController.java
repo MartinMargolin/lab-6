@@ -13,10 +13,9 @@ public class GameController {
 
 
 
-
     public void run() {
-
-  /*
+        //Test
+        /*
         Board test = new Board();
         test.placePiece("R",3);
         test.placePiece("Y", 3);
