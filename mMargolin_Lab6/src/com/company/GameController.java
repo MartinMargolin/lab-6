@@ -9,6 +9,12 @@ import java.io.InputStreamReader;
 public class GameController {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
+    public void runTest() {
+        char[][] test = new char[7][6];
+        new Board().printBoard(test, "James", "Cunt");
+
+        new Board().printBoard(test, "A", "B");
+    }
 
     public void run() {
         int userChoice = -1;
@@ -29,8 +35,7 @@ public class GameController {
         } while (userChoice > 0);
     }
 
-    public void humanVHuman()
-    {
+    public void humanVHuman() {
 
     }
 
@@ -81,4 +86,6 @@ public class GameController {
 
         return userNum;
     }
+
+    //I think it's fine
 }
