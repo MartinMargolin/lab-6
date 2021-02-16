@@ -10,7 +10,11 @@ public class GameController {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
 
+
+
     public void run() {
+        Board test = new Board();
+        test.printBoard("a", "b");
         int userChoice = -1;
 
         do {
