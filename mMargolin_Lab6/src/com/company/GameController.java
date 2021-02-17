@@ -11,19 +11,8 @@ import java.io.InputStreamReader;
 public class GameController {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-
-
     public void run() {
-        //Test
-        /*
-        Board test = new Board();
-        test.placePiece("R",3);
-        test.placePiece("Y", 3);
-        test.printBoard("a", "b");
- */
-
         mainMenu();
-
     }
 
     public void humanVHuman() {
@@ -33,27 +22,27 @@ public class GameController {
 
         System.out.println("Player one enter name: ");
 
-        in =  input();
-        if (in != "")
-        {
+        in = input();
+        if (in != "") {
             P1.setName(in);
-        } else { P1.setName("Human1"); }
+        } else {
+            P1.setName("Human1");
+        }
 
         System.out.println("Player two enter name");
 
         in = input();
-        if (in != "")
-        {
+        if (in != "") {
             P2.setName(in);
-        } else { P2.setName("Human2"); }
+        } else {
+            P2.setName("Human2");
+        }
 
         Board board = new Board();
         int game = 1;
         do {
 
-
-
-        } while(game == 1);
+        } while (game == 1);
 
     }
 
@@ -64,21 +53,18 @@ public class GameController {
 
         System.out.println("Player one enter name: ");
 
-        in =  input();
-        if (in != "")
-        {
+        in = input();
+        if (in != "") {
             P1.setName(in);
-        } else { P1.setName("Human1"); }
+        } else {
+            P1.setName("Human1");
+        }
 
         Board board = new Board();
         int game = 1;
         do {
 
-
-
-        } while(game == 1);
-
-
+        } while (game == 1);
     }
 
     public void compVComp() {
@@ -89,9 +75,7 @@ public class GameController {
         int game = 1;
         do {
 
-
-
-        } while(game == 1);
+        } while (game == 1);
     }
 
     public void mainMenu() {
@@ -105,11 +89,8 @@ public class GameController {
         int maxOption = 3;
         int userChoice = promptForInt(mainMenu, minOption, maxOption);
 
-
         do {
-
-            switch (userChoice)
-            {
+            switch (userChoice) {
                 case 1:
                     humanVHuman();
                     break;
@@ -120,7 +101,6 @@ public class GameController {
                     compVComp();
                     break;
             }
-
         } while (userChoice > 0);
     }
 
@@ -153,20 +133,15 @@ public class GameController {
         return userNum;
     }
 
-    public String input()
-    {
+    public String input() {
         System.out.print("Input: ");
         String input = "";
-        try
-        {
+        try {
             input = bufferedReader.readLine();
-        } catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Slow down there pal lets try that again...");
         }
-
         System.out.println(input);
         return input;
     }
-
-    //I think it's fine
 }
