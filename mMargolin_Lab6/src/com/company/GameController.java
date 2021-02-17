@@ -7,6 +7,7 @@ import models.HumanController;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Random;
 
 public class GameController {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -41,6 +42,7 @@ public class GameController {
         Board board = new Board();
         int game = 1;
         board.printBoard(P1.getName(),P2.getName());
+        startingPlayer(P1.getName(),P2.getName());
         do {
 
         } while (game == 1);
@@ -73,6 +75,7 @@ public class GameController {
         Board board = new Board();
         int game = 1;
         board.printBoard(P1.getName(),P2.getName());
+        startingPlayer(P1.getName(),P2.getName());
         do {
 
         } while (game == 1);
@@ -104,6 +107,7 @@ public class GameController {
         Board board = new Board();
         int game = 1;
         board.printBoard(P1.getName(),P2.getName());
+        startingPlayer(P1.getName(),P2.getName());
         do {
 
         } while (game == 1);
@@ -174,5 +178,29 @@ public class GameController {
         }
         System.out.println(input);
         return input;
+    }
+
+    public int rng() {
+        int i;
+        Random rand = new Random();
+        i = rand.nextInt(2) + 1;
+        return i;
+    }
+
+    public void startingPlayer(String p1, String p2) {
+        //WIP brain doesn't really work this morning
+        if (rng() == 1) {
+            if (rng() == 1) {
+                System.out.println("\n" + p1 + " goes first");
+            } else {
+                System.out.println("\n" + p2 + " goes second");
+            }
+        } else {
+            if (rng() == 2) {
+                System.out.println("\n" + p2 + " goes first");
+            } else {
+                System.out.println("\n" + p1 + " goes second");
+            }
+        }
     }
 }
