@@ -23,7 +23,7 @@ public class GameController {
         System.out.println("Player one enter name: ");
 
         in = input();
-        if (in != "") {
+        if (!in.equals("")) {
             P1.setName(in);
         } else {
             P1.setName("Human1");
@@ -32,7 +32,7 @@ public class GameController {
         System.out.println("Player two enter name: ");
 
         in = input();
-        if (in != "") {
+        if (!in.equals("")) {
             P2.setName(in);
         } else {
             P2.setName("Human2");
@@ -40,6 +40,7 @@ public class GameController {
 
         Board board = new Board();
         int game = 1;
+        board.printBoard(P1.getName(),P2.getName());
         do {
 
         } while (game == 1);
@@ -54,7 +55,7 @@ public class GameController {
         System.out.println("Player one enter name: ");
 
         in = input();
-        if (in != "") {
+        if (!in.equals("")) {
             P1.setName(in);
         } else {
             P1.setName("Human1");
@@ -63,7 +64,7 @@ public class GameController {
         System.out.println("Computer 1 enter name: ");
 
         in = input();
-        if (in != "") {
+        if (!in.equals("")) {
             P2.setName(in);
         } else {
             P2.setName("Comp1");
@@ -71,6 +72,7 @@ public class GameController {
 
         Board board = new Board();
         int game = 1;
+        board.printBoard(P1.getName(),P2.getName());
         do {
 
         } while (game == 1);
@@ -84,7 +86,7 @@ public class GameController {
         System.out.println("Computer 1 enter name: ");
 
         in = input();
-        if (in != "") {
+        if (!in.equals("")) {
             P1.setName(in);
         } else {
             P1.setName("Comp1");
@@ -93,7 +95,7 @@ public class GameController {
         System.out.println("Computer 2 enter name: ");
 
         in = input();
-        if (in != "") {
+        if (!in.equals("")) {
             P2.setName(in);
         } else {
             P2.setName("Comp2");
@@ -101,6 +103,7 @@ public class GameController {
 
         Board board = new Board();
         int game = 1;
+        board.printBoard(P1.getName(),P2.getName());
         do {
 
         } while (game == 1);
