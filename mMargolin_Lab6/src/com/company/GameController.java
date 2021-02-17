@@ -29,7 +29,7 @@ public class GameController {
             P1.setName("Human1");
         }
 
-        System.out.println("Player two enter name");
+        System.out.println("Player two enter name: ");
 
         in = input();
         if (in != "") {
@@ -60,6 +60,15 @@ public class GameController {
             P1.setName("Human1");
         }
 
+        System.out.println("Computer 1 enter name: ");
+
+        in = input();
+        if (in != "") {
+            P2.setName(in);
+        } else {
+            P2.setName("Comp1");
+        }
+
         Board board = new Board();
         int game = 1;
         do {
@@ -68,8 +77,27 @@ public class GameController {
     }
 
     public void compVComp() {
+        String in;
         AIController P1 = new AIController();
         AIController P2 = new AIController();
+
+        System.out.println("Computer 1 enter name: ");
+
+        in = input();
+        if (in != "") {
+            P1.setName(in);
+        } else {
+            P1.setName("Comp1");
+        }
+
+        System.out.println("Computer 2 enter name: ");
+
+        in = input();
+        if (in != "") {
+            P2.setName(in);
+        } else {
+            P2.setName("Comp2");
+        }
 
         Board board = new Board();
         int game = 1;
