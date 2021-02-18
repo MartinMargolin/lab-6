@@ -41,5 +41,12 @@ public class Board {
 
     }
 
+    public boolean checkWinner(int player)
+    {
+
+        return false;
+    }
+
+
 
 }
