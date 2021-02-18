@@ -11,6 +11,12 @@ import java.util.Random;
 
 public class GameController {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    int turnRotation;
+    HumanController P1 = new HumanController();
+    HumanController P2 = new HumanController();
+    AIController AIP1 = new AIController();
+    AIController AIP2 = new AIController();
+
 
     public void run() {
         mainMenu();
@@ -18,8 +24,7 @@ public class GameController {
 
     public void humanVHuman() {
         String in;
-        HumanController P1 = new HumanController();
-        HumanController P2 = new HumanController();
+
 
         System.out.println("Player one enter name: ");
 
@@ -41,18 +46,34 @@ public class GameController {
 
         Board board = new Board();
         int game = 1;
-        board.printBoard(P1.getName(),P2.getName());
+
         startingPlayer(P1.getName(),P2.getName());
         do {
 
+            board.printBoard(P1.getName(),P2.getName());
+
+
+
+            if (board.checkWinner(1) == true)
+            {
+                System.out.println("Player:" + P1 + " has won the game!");
+                game = 0;
+            }
+
+
+
+            if (board.checkWinner(2))
+            {
+                System.out.println("Player:" + P2 + " has won the game!");
+                game = 0;
+            }
         } while (game == 1);
 
     }
 
     public void humanVComp() {
         String in;
-        HumanController P1 = new HumanController();
-        AIController P2 = new AIController();
+
 
         System.out.println("Player one enter name: ");
 
@@ -67,48 +88,48 @@ public class GameController {
 
         in = input();
         if (!in.equals("")) {
-            P2.setName(in);
+            AIP2.setName(in);
         } else {
-            P2.setName("Comp1");
+            AIP2.setName("Comp1");
         }
 
         Board board = new Board();
         int game = 1;
-        board.printBoard(P1.getName(),P2.getName());
-        startingPlayer(P1.getName(),P2.getName());
-        do {
 
+        startingPlayer(P1.getName(),AIP2.getName());
+        do {
+            board.printBoard(P1.getName(),AIP2.getName());
         } while (game == 1);
     }
 
     public void compVComp() {
         String in;
-        AIController P1 = new AIController();
-        AIController P2 = new AIController();
+
 
         System.out.println("Computer 1 enter name: ");
 
         in = input();
         if (!in.equals("")) {
-            P1.setName(in);
+            AIP1.setName(in);
         } else {
-            P1.setName("Comp1");
+            AIP1.setName("Comp1");
         }
 
         System.out.println("Computer 2 enter name: ");
 
         in = input();
         if (!in.equals("")) {
-            P2.setName(in);
+            AIP2.setName(in);
         } else {
-            P2.setName("Comp2");
+            AIP2.setName("Comp2");
         }
 
         Board board = new Board();
         int game = 1;
-        board.printBoard(P1.getName(),P2.getName());
-        startingPlayer(P1.getName(),P2.getName());
+
+        startingPlayer(AIP1.getName(),AIP2.getName());
         do {
+            board.printBoard(AIP1.getName(),AIP2.getName());
 
         } while (game == 1);
     }
@@ -192,15 +213,19 @@ public class GameController {
         if (rng() == 1) {
             if (rng() == 1) {
                 System.out.println("\n" + p1 + " goes first");
+                turnRotation = 1;
             } else {
                 System.out.println("\n" + p2 + " goes second");
             }
         } else {
             if (rng() == 2) {
                 System.out.println("\n" + p2 + " goes first");
+                turnRotation = 2;
             } else {
                 System.out.println("\n" + p1 + " goes second");
             }
         }
     }
+
+
 }
