@@ -4,28 +4,25 @@ public class Board {
 
     String[][] board = new String[][]
             {
-                    {"0","0","0","0","0","0","0"},
-                    {"0","0","0","0","0","0","0"},
-                    {"0","0","0","0","0","0","0"},
-                    {"0","0","0","0","0","0","0"},
-                    {"0","0","0","0","0","0","0"},
-                    {"0","0","0","0","0","0","0"}
+                    {"0", "0", "0", "0", "0", "0", "0"},
+                    {"0", "0", "0", "0", "0", "0", "0"},
+                    {"0", "0", "0", "0", "0", "0", "0"},
+                    {"0", "0", "0", "0", "0", "0", "0"},
+                    {"0", "0", "0", "0", "0", "0", "0"},
+                    {"0", "0", "0", "0", "0", "0", "0"}
             };
 
-    public void placePiece(String in, int column)
-    {
+    public void placePiece(String in, int column) {
         boolean placed = false;
         int i = 5;
         do {
-            if (board[i][column-1] != "0")
-            {
+            if (board[i][column - 1] != "0") {
                 i--;
-            } else if (board[i][column-1] == "0")
-            {
-                board[i][column-1] = in;
+            } else if (board[i][column - 1] == "0") {
+                board[i][column - 1] = in;
                 placed = true;
             }
-        } while(placed == false);
+        } while (placed == false);
 
     }
 
@@ -41,12 +38,10 @@ public class Board {
 
     }
 
-    public boolean checkWinner(int player)
-    {
+    public boolean checkWinner(int player) {
 
         return false;
     }
-
 
 
 }
