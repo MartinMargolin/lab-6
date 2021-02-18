@@ -27,7 +27,7 @@ public class HumanController implements Player
     @Override
     public void setColor(String in)
     {
-        System.out.println(this.name + "Has been given the color: " + in );
+        System.out.println(this.name + " has been given the color: " + in );
         color = in;
     }
 
