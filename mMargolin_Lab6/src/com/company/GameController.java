@@ -7,23 +7,13 @@ import models.HumanController;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Random;
 
 public class GameController {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-
-
     public void run() {
-        //Test
-        /*
-        Board test = new Board();
-        test.placePiece("R",3);
-        test.placePiece("Y", 3);
-        test.printBoard("a", "b");
- */
-
         mainMenu();
-
     }
 
     public void humanVHuman() {
@@ -33,27 +23,29 @@ public class GameController {
 
         System.out.println("Player one enter name: ");
 
-        in =  input();
-        if (in != "")
-        {
+        in = input();
+        if (!in.equals("")) {
             P1.setName(in);
-        } else { P1.setName("Human1"); }
+        } else {
+            P1.setName("Human1");
+        }
 
-        System.out.println("Player two enter name");
+        System.out.println("Player two enter name: ");
 
         in = input();
-        if (in != "")
-        {
+        if (!in.equals("")) {
             P2.setName(in);
-        } else { P2.setName("Human2"); }
+        } else {
+            P2.setName("Human2");
+        }
 
         Board board = new Board();
         int game = 1;
+        board.printBoard(P1.getName(),P2.getName());
+        startingPlayer(P1.getName(),P2.getName());
         do {
 
-
-
-        } while(game == 1);
+        } while (game == 1);
 
     }
 
@@ -64,34 +56,61 @@ public class GameController {
 
         System.out.println("Player one enter name: ");
 
-        in =  input();
-        if (in != "")
-        {
+        in = input();
+        if (!in.equals("")) {
             P1.setName(in);
-        } else { P1.setName("Human1"); }
+        } else {
+            P1.setName("Human1");
+        }
+
+        System.out.println("Computer 1 enter name: ");
+
+        in = input();
+        if (!in.equals("")) {
+            P2.setName(in);
+        } else {
+            P2.setName("Comp1");
+        }
 
         Board board = new Board();
         int game = 1;
+        board.printBoard(P1.getName(),P2.getName());
+        startingPlayer(P1.getName(),P2.getName());
         do {
 
-
-
-        } while(game == 1);
-
-
+        } while (game == 1);
     }
 
     public void compVComp() {
+        String in;
         AIController P1 = new AIController();
         AIController P2 = new AIController();
 
+        System.out.println("Computer 1 enter name: ");
+
+        in = input();
+        if (!in.equals("")) {
+            P1.setName(in);
+        } else {
+            P1.setName("Comp1");
+        }
+
+        System.out.println("Computer 2 enter name: ");
+
+        in = input();
+        if (!in.equals("")) {
+            P2.setName(in);
+        } else {
+            P2.setName("Comp2");
+        }
+
         Board board = new Board();
         int game = 1;
+        board.printBoard(P1.getName(),P2.getName());
+        startingPlayer(P1.getName(),P2.getName());
         do {
 
-
-
-        } while(game == 1);
+        } while (game == 1);
     }
 
     public void mainMenu() {
@@ -105,11 +124,8 @@ public class GameController {
         int maxOption = 3;
         int userChoice = promptForInt(mainMenu, minOption, maxOption);
 
-
         do {
-
-            switch (userChoice)
-            {
+            switch (userChoice) {
                 case 1:
                     humanVHuman();
                     break;
@@ -120,7 +136,6 @@ public class GameController {
                     compVComp();
                     break;
             }
-
         } while (userChoice > 0);
     }
 
@@ -153,20 +168,39 @@ public class GameController {
         return userNum;
     }
 
-    public String input()
-    {
+    public String input() {
         System.out.print("Input: ");
         String input = "";
-        try
-        {
+        try {
             input = bufferedReader.readLine();
-        } catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Slow down there pal lets try that again...");
         }
-
         System.out.println(input);
         return input;
     }
 
-    //I think it's fine
+    public int rng() {
+        int i;
+        Random rand = new Random();
+        i = rand.nextInt(2) + 1;
+        return i;
+    }
+
+    public void startingPlayer(String p1, String p2) {
+        //WIP brain doesn't really work this morning
+        if (rng() == 1) {
+            if (rng() == 1) {
+                System.out.println("\n" + p1 + " goes first");
+            } else {
+                System.out.println("\n" + p2 + " goes second");
+            }
+        } else {
+            if (rng() == 2) {
+                System.out.println("\n" + p2 + " goes first");
+            } else {
+                System.out.println("\n" + p1 + " goes second");
+            }
+        }
+    }
 }
