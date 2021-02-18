@@ -50,24 +50,29 @@ public class GameController {
         startingPlayer(P1.getName(),P2.getName());
         do {
 
-            board.printBoard(P1.getName(),P2.getName());
+            board.printBoard(P1.getName(), P2.getName());
+
+            switch (turnRotation) {
+
+                case 1:
 
 
+                if (board.checkWinner(1) == true) {
+                    System.out.println("Player:" + P1 + " has won the game!");
+                    game = 0;
+                    break;
+                }
 
-            if (board.checkWinner(1) == true)
-            {
-                System.out.println("Player:" + P1 + " has won the game!");
-                game = 0;
+                case 2:
+
+
+                if (board.checkWinner(2)) {
+                    System.out.println("Player:" + P2 + " has won the game!");
+                    game = 0;
+                    break;
+                }
             }
-
-
-
-            if (board.checkWinner(2))
-            {
-                System.out.println("Player:" + P2 + " has won the game!");
-                game = 0;
-            }
-        } while (game == 1);
+        }while (game == 1) ;
 
     }
 

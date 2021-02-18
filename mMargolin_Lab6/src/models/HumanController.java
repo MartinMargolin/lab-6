@@ -37,4 +37,6 @@ public class HumanController implements Player
         return color;
     }
 
+
+
 }
