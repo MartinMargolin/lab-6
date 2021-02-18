@@ -25,8 +25,8 @@ public class GameController {
 
     public void humanVHuman() {
         String in;
-
-
+        P1.setColor("R");
+        P2.setColor("Y");
         System.out.println("Player one enter name: ");
 
         in = input();
@@ -49,6 +49,8 @@ public class GameController {
         int game = 1;
         board.printBoard(P1.getName(), P2.getName());
         startingPlayer(P1.getName(), P2.getName());
+
+
         do {
 
             switch (turnRotation) {
@@ -70,7 +72,7 @@ public class GameController {
 
                 case 2:
                     board.printBoard(P1.getName(), P2.getName());
-                    turn = promptForInt("\n\n" + P2.getName() + " place your piece (1-7)", 1, 7);
+                    turn = promptForInt("\n\n" + P2.getName() + " place your piece (1-7): ", 1, 7);
                     board.placePiece(P2.getColor(), turn);
 
                     if (board.checkWinner(2)) {
