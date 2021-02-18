@@ -16,6 +16,7 @@ public class GameController {
     HumanController P2 = new HumanController();
     AIController AIP1 = new AIController();
     AIController AIP2 = new AIController();
+    int turn;
 
 
     public void run() {
@@ -46,33 +47,42 @@ public class GameController {
 
         Board board = new Board();
         int game = 1;
-
-        startingPlayer(P1.getName(),P2.getName());
+        board.printBoard(P1.getName(), P2.getName());
+        startingPlayer(P1.getName(), P2.getName());
         do {
-
-            board.printBoard(P1.getName(), P2.getName());
 
             switch (turnRotation) {
 
                 case 1:
+                    board.printBoard(P1.getName(), P2.getName());
+                    turn = promptForInt("\n\n" + P1.getName() + " place your piece (1-7): ", 1, 7);
+                    board.placePiece(P1.getColor(), turn);
+
+                    if (board.checkWinner(1) == true) {
+                        System.out.println("Player:" + P1 + " has won the game!");
+                        game = 0;
+                        break;
+                    }
 
 
-                if (board.checkWinner(1) == true) {
-                    System.out.println("Player:" + P1 + " has won the game!");
-                    game = 0;
+                    turnRotation = 2;
                     break;
-                }
 
                 case 2:
+                    board.printBoard(P1.getName(), P2.getName());
+                    turn = promptForInt("\n\n" + P2.getName() + " place your piece (1-7)", 1, 7);
+                    board.placePiece(P2.getColor(), turn);
 
+                    if (board.checkWinner(2)) {
+                        System.out.println("Player:" + P2 + " has won the game!");
+                        game = 0;
+                        break;
+                    }
 
-                if (board.checkWinner(2)) {
-                    System.out.println("Player:" + P2 + " has won the game!");
-                    game = 0;
+                    turnRotation = 1;
                     break;
-                }
             }
-        }while (game == 1) ;
+        } while (game == 1);
 
     }
 
@@ -101,9 +111,9 @@ public class GameController {
         Board board = new Board();
         int game = 1;
 
-        startingPlayer(P1.getName(),AIP2.getName());
+        startingPlayer(P1.getName(), AIP2.getName());
         do {
-            board.printBoard(P1.getName(),AIP2.getName());
+            board.printBoard(P1.getName(), AIP2.getName());
         } while (game == 1);
     }
 
@@ -132,9 +142,9 @@ public class GameController {
         Board board = new Board();
         int game = 1;
 
-        startingPlayer(AIP1.getName(),AIP2.getName());
+        startingPlayer(AIP1.getName(), AIP2.getName());
         do {
-            board.printBoard(AIP1.getName(),AIP2.getName());
+            board.printBoard(AIP1.getName(), AIP2.getName());
 
         } while (game == 1);
     }
@@ -215,22 +225,20 @@ public class GameController {
 
     public void startingPlayer(String p1, String p2) {
         //WIP brain doesn't really work this morning
+
         if (rng() == 1) {
-            if (rng() == 1) {
-                System.out.println("\n" + p1 + " goes first");
-                turnRotation = 1;
-            } else {
-                System.out.println("\n" + p2 + " goes second");
-            }
-        } else {
-            if (rng() == 2) {
-                System.out.println("\n" + p2 + " goes first");
-                turnRotation = 2;
-            } else {
-                System.out.println("\n" + p1 + " goes second");
-            }
+            System.out.println("\n" + p1 + " goes first");
+            turnRotation = 1;
+
+            System.out.println("\n" + p2 + " goes second");
+        } else if (rng() == 2) {
+            System.out.println("\n" + p2 + " goes first");
+            turnRotation = 2;
+
+            System.out.println("\n" + p1 + " goes second");
         }
+
     }
-
-
 }
+
+
