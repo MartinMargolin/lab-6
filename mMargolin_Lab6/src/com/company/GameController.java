@@ -65,40 +65,41 @@ public class GameController {
             P1.setColor("R");
         }
 
-        do {
 
-            switch (turnRotation) {
+            do {
 
-                case 1:
-                    board.printBoard(P1.getName(), P2.getName());
-                    turn = promptForInt("\n\n" + P1.getName() + " place your piece (1-7): ", 1, 7);
-                    board.placePiece(P1.getColor(), turn);
+                switch (turnRotation) {
 
-                    if (board.checkWinner(P1.getColor())) {
-                        System.out.println("Player:" + P1.getName() + " has won the game!");
-                        game = 0;
+                    case 1:
+                        board.printBoard(P1.getName(), P2.getName());
+                        turn = promptForInt("\n\n" + P1.getName() + " place your piece (1-7): ", 1, 7);
+                        board.placePiece(P1.getColor(), turn);
+
+                        if (board.checkWinner(P1.getColor())) {
+                            System.out.println("Player:" + P1.getName() + " has won the game!");
+                            game = 0;
+                            break;
+                        }
+
+
+                        turnRotation = 2;
                         break;
-                    }
 
+                    case 2:
+                        board.printBoard(P1.getName(), P2.getName());
+                        turn = promptForInt("\n\n" + P2.getName() + " place your piece (1-7): ", 1, 7);
+                        board.placePiece(P2.getColor(), turn);
 
-                    turnRotation = 2;
-                    break;
+                        if (board.checkWinner(P2.getColor())) {
+                            System.out.println("Player:" + P2.getName() + " has won the game!");
+                            game = 0;
+                            break;
+                        }
 
-                case 2:
-                    board.printBoard(P1.getName(), P2.getName());
-                    turn = promptForInt("\n\n" + P2.getName() + " place your piece (1-7): ", 1, 7);
-                    board.placePiece(P2.getColor(), turn);
-
-                    if (board.checkWinner(P2.getColor())) {
-                        System.out.println("Player:" + P2.getName() + " has won the game!");
-                        game = 0;
+                        turnRotation = 1;
                         break;
-                    }
-
-                    turnRotation = 1;
-                    break;
-            }
-        } while (game == 1);
+                }
+            } while (game == 1);
 
     }
 
