@@ -68,7 +68,12 @@ public class GameController {
                 case 1:
                     board.printBoard(P1.getName(), P2.getName());
                     turn = promptForInt("\n\n" + P1.getName() + " place your piece (1-7): ", 1, 7);
-                    board.placePiece(P1.getColor(), turn);
+                    try {
+                        board.placePiece(P1.getColor(), turn);
+                    } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                        System.out.println("Your move was invalid. " + "\n" + "Try again!!");
+                    }
+
 
                     if (board.checkWinner(P1.getColor())) {
                         System.out.println("Player:" + P1.getName() + " has won the game!");
@@ -83,7 +88,12 @@ public class GameController {
                 case 2:
                     board.printBoard(P1.getName(), P2.getName());
                     turn = promptForInt("\n\n" + P2.getName() + " place your piece (1-7): ", 1, 7);
-                    board.placePiece(P2.getColor(), turn);
+
+                    try {
+                        board.placePiece(P2.getColor(), turn);
+                    } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                        System.out.println("Your move was invalid. " + "\n" + "Try again!!");
+                    }
 
                     if (board.checkWinner(P2.getColor())) {
                         System.out.println("Player:" + P2.getName() + " has won the game!");
@@ -138,7 +148,12 @@ public class GameController {
                 case 1:
                     board.printBoard(P1.getName(), AIP2.getName());
                     turn = promptForInt("\n\n" + P1.getName() + " place your piece (1-7): ", 1, 7);
-                    board.placePiece(P1.getColor(), turn);
+
+                    try {
+                        board.placePiece(P1.getColor(), turn);
+                    } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                        System.out.println("Your move was invalid. " + "\n" + "Try again!!");
+                    }
 
                     if (board.checkWinner(P1.getColor())) {
                         System.out.println("Player:" + P1.getName() + " has won the game!");
@@ -154,7 +169,12 @@ public class GameController {
                     board.printBoard(P1.getName(), AIP2.getName());
                     turn = AIP2.takeTurn();
                     System.out.println(AIP2.getName() + " has placed: " + turn);
-                    board.placePiece(AIP2.getColor(), turn);
+
+                    try {
+                        board.placePiece(AIP2.getColor(), turn);
+                    } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                        System.out.println("Your move was invalid. " + "\n" + "Try again!!");
+                    }
 
                     if (board.checkWinner(AIP2.getColor())) {
                         System.out.println("Player:" + AIP2.getName() + " has won the game!");
@@ -208,7 +228,12 @@ public class GameController {
                     board.printBoard(AIP1.getName(), AIP2.getName());
                     turn = AIP1.takeTurn();
                     System.out.println(AIP1.getName() + " has placed: " + turn);
-                    board.placePiece(AIP1.getColor(), turn);
+
+                    try {
+                        board.placePiece(AIP1.getColor(), turn);
+                    } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                        System.out.println("Your move was invalid. " + "\n" + "Try again!!");
+                    }
 
                     if (board.checkWinner(AIP1.getColor())) {
                         System.out.println("Player:" + AIP1.getName() + " has won the game!");
@@ -224,7 +249,12 @@ public class GameController {
                     board.printBoard(AIP1.getName(), AIP2.getName());
                     turn = AIP2.takeTurn();
                     System.out.println(AIP2.getName() + " has placed: " + turn);
-                    board.placePiece(AIP2.getColor(), turn);
+
+                    try {
+                        board.placePiece(AIP2.getColor(), turn);
+                    } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                        System.out.println("Your move was invalid. " + "\n" + "Try again!!");
+                    }
 
                     if (board.checkWinner(AIP2.getColor())) {
                         System.out.println("Player:" + AIP2.getName() + " has won the game!");
