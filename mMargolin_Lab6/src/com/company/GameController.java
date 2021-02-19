@@ -75,7 +75,7 @@ public class GameController {
                     board.placePiece(P1.getColor(), turn);
 
                     if (board.checkWinner(P1.getColor())) {
-                        System.out.println("Player:" + P1 + " has won the game!");
+                        System.out.println("Player:" + P1.getName() + " has won the game!");
                         game = 0;
                         break;
                     }
@@ -90,7 +90,7 @@ public class GameController {
                     board.placePiece(P2.getColor(), turn);
 
                     if (board.checkWinner(P2.getColor())) {
-                        System.out.println("Player:" + P2 + " has won the game!");
+                        System.out.println("Player:" + P2.getName() + " has won the game!");
                         game = 0;
                         break;
                     }
@@ -146,7 +146,7 @@ public class GameController {
                     board.placePiece(P1.getColor(), turn);
 
                     if (board.checkWinner(P1.getColor())) {
-                        System.out.println("Player:" + P1 + " has won the game!");
+                        System.out.println("Player:" + P1.getName() + " has won the game!");
                         game = 0;
                         break;
                     }
@@ -162,7 +162,7 @@ public class GameController {
                     board.placePiece(AIP2.getColor(), turn);
 
                     if (board.checkWinner(AIP2.getColor())) {
-                        System.out.println("Player:" + AIP2 + " has won the game!");
+                        System.out.println("Player:" + AIP2.getName() + " has won the game!");
                         game = 0;
                         break;
                     }
@@ -218,7 +218,7 @@ public class GameController {
                     board.placePiece(AIP1.getColor(), turn);
 
                     if (board.checkWinner(AIP1.getColor())) {
-                        System.out.println("Player:" + AIP1 + " has won the game!");
+                        System.out.println("Player:" + AIP1.getName() + " has won the game!");
                         game = 0;
                         break;
                     }
@@ -234,7 +234,7 @@ public class GameController {
                     board.placePiece(AIP2.getColor(), turn);
 
                     if (board.checkWinner(AIP2.getColor())) {
-                        System.out.println("Player:" + AIP2 + " has won the game!");
+                        System.out.println("Player:" + AIP2.getName() + " has won the game!");
                         game = 0;
                         break;
                     }

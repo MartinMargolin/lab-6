@@ -49,46 +49,57 @@ public class Board {
     public boolean checkWinner(String color) {
         boolean winState = false;
 
-        for (int i = 0; i < board.length ; i++)  // HORIZONTAL CHECK
+        try {
+            for (int i = 0; i < board.length; i++)  // HORIZONTAL CHECK
+            {
+                for (int j = 0; j < board[i].length - 3; j++) {
+                    if (board[i][j] == color && board[i][j + 1] == color && board[i][j + 2] == color && board[i][j + 3] == color) {
+                        winState = true;
+                    }
+                }
+            }
+        } catch (ArrayIndexOutOfBoundsException AIOB) {
+
+        }
+
+        try {
+            for (int i = 0; i < board.length; i++)  // VERTICAL CHECK
+            {
+                for (int j = 0; j < board[i].length - 3; j++) {
+                    if (board[i][j] == color && board[i + 1][j] == color && board[i + 2][j] == color && board[i + 3][j] == color) {
+                        winState = true;
+                    }
+                }
+            }
+        } catch (ArrayIndexOutOfBoundsException AIOB) {
+
+        }
+
+        try {
+            for (int i = 0; i < board.length; i++)  // DIAGONAL LEFT CHECK
+            {
+                for (int j = 0; j < board[i].length - 3; j++) {
+                    if (board[i][j] == color && board[i + 1][j - 1] == color && board[i + 2][j - 2] == color && board[i + 3][j - 3] == color) {
+                        winState = true;
+                    }
+                }
+            }
+        } catch (ArrayIndexOutOfBoundsException AIOB) {
+
+        }
+
+        try {
+        for (int i = 0; i < board.length; i++)  // DIAGONAL RIGHT CHECK
         {
-            for (int j = 0; j < board[i].length-3; j++) {
-                if(board[i][j] == color && board[i][j+1] == color && board[i][j+2] == color && board[i][j+3] == color )
-                {
+            for (int j = 0; j < board[i].length - 3; j++) {
+                if (board[i][j] == color && board[i + 1][j + 1] == color && board[i + 2][j + 2] == color && board[i + 3][j + 3] == color) {
                     winState = true;
                 }
             }
         }
+    } catch (ArrayIndexOutOfBoundsException AIOB) {
 
-        for (int i = 0; i < board.length ; i++)  // VERTICAL CHECK
-        {
-            for (int j = 0; j < board[i].length-3; j++) {
-                if(board[i][j] == color && board[i+1][j] == color && board[i+2][j] == color && board[i+3][j] == color )
-                {
-                    winState = true;
-                }
-            }
         }
-
-        for (int i = 0; i < board.length ; i++)  // DIAGONAL LEFT CHECK
-        {
-            for (int j = 0; j < board[i].length-3; j++) {
-                if(board[i][j] == color && board[i+1][j-1] == color && board[i+2][j-2] == color && board[i+3][j-3] == color )
-                {
-                    winState = true;
-                }
-            }
-        }
-
-        for (int i = 0; i < board.length ; i++)  // DIAGONAL RIGHT CHECK
-        {
-            for (int j = 0; j < board[i].length-3; j++) {
-                if(board[i][j] == color && board[i+1][j+1] == color && board[i+2][j+2] == color && board[i+3][j+3] == color )
-                {
-                    winState = true;
-                }
-            }
-        }
-
 
 
         return winState;
