@@ -2,9 +2,6 @@ package models;
 
 import interfaces.Player;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 public class HumanController implements Player {
 
     String name = "Human"; // default

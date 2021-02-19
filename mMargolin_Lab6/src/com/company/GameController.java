@@ -7,7 +7,6 @@ import models.HumanController;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.SQLOutput;
 import java.util.Random;
 
 public class GameController {
@@ -26,7 +25,6 @@ public class GameController {
 
     public void humanVHuman() {
         String in;
-
 
         System.out.println("Player one enter name ");
 
@@ -51,7 +49,6 @@ public class GameController {
         board.printBoard(P1.getName(), P2.getName());
         startingPlayer(P1.getName(), P2.getName());
 
-
         if (turnRotation == 1) {
             P1.setColor("Y");
             P2.setColor("R");
@@ -59,7 +56,6 @@ public class GameController {
             P2.setColor("Y");
             P1.setColor("R");
         }
-
 
         do {
 
@@ -74,13 +70,11 @@ public class GameController {
                         System.out.println("Your move was invalid. " + "\n" + "Try again!!");
                     }
 
-
                     if (board.checkWinner(P1.getColor())) {
                         System.out.println("Player:" + P1.getName() + " has won the game!");
                         game = 0;
                         break;
                     }
-
 
                     turnRotation = 2;
                     break;
@@ -105,7 +99,7 @@ public class GameController {
                     break;
             }
         } while (game == 1);
-
+        //find out how to stop game
     }
 
     public void humanVComp() {
@@ -160,7 +154,6 @@ public class GameController {
                         game = 0;
                         break;
                     }
-
 
                     turnRotation = 2;
                     break;
@@ -240,7 +233,6 @@ public class GameController {
                         game = 0;
                         break;
                     }
-
 
                     turnRotation = 2;
                     break;
