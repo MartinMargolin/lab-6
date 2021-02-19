@@ -17,6 +17,7 @@ public class GameController {
     AIController AIP1 = new AIController();
     AIController AIP2 = new AIController();
     int turn;
+    int prompt = 0;
 
 
     public void run() {
@@ -135,50 +136,53 @@ public class GameController {
             P1.setColor("R");
         }
 
-        do {
 
-            switch (turnRotation) {
+            do {
 
-                case 1:
-                    board.printBoard(P1.getName(), AIP2.getName());
-                    turn = promptForInt("\n\n" + P1.getName() + " place your piece (1-7): ", 1, 7);
+                switch (turnRotation) {
 
-                    try {
-                        board.placePiece(P1.getColor(), turn);
-                    } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-                        System.out.println("Your move was invalid. " + "\n" + "Try again!!");
-                    }
+                    case 1:
+                        board.printBoard(P1.getName(), AIP2.getName());
+                        turn = promptForInt("\n\n" + P1.getName() + " place your piece (1-7): ", 1, 7);
 
-                    if (board.checkWinner(P1.getColor())) {
-                        System.out.println("Player:" + P1.getName() + " has won the game!");
-                        game = 0;
+                        try {
+                            board.placePiece(P1.getColor(), turn);
+                        } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                            System.out.println("Your move was invalid. " + "\n" + "Try again!!");
+                        }
+
+                        if (board.checkWinner(P1.getColor())) {
+                            System.out.println("Player:" + P1.getName() + " has won the game!");
+                            game = 0;
+                            break;
+                        }
+
+                        turnRotation = 2;
                         break;
-                    }
 
-                    turnRotation = 2;
-                    break;
+                    case 2:
+                        board.printBoard(P1.getName(), AIP2.getName());
+                        turn = AIP2.takeTurn();
+                        System.out.println(AIP2.getName() + " has placed: " + turn);
 
-                case 2:
-                    board.printBoard(P1.getName(), AIP2.getName());
-                    turn = AIP2.takeTurn();
-                    System.out.println(AIP2.getName() + " has placed: " + turn);
+                        try {
+                            board.placePiece(AIP2.getColor(), turn);
+                        } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                            System.out.println("Your move was invalid. " + "\n" + "Try again!!");
+                        }
 
-                    try {
-                        board.placePiece(AIP2.getColor(), turn);
-                    } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-                        System.out.println("Your move was invalid. " + "\n" + "Try again!!");
-                    }
+                        if (board.checkWinner(AIP2.getColor())) {
+                            System.out.println("Player:" + AIP2.getName() + " has won the game!");
+                            game = 0;
+                            break;
+                        }
 
-                    if (board.checkWinner(AIP2.getColor())) {
-                        System.out.println("Player:" + AIP2.getName() + " has won the game!");
-                        game = 0;
+                        turnRotation = 1;
                         break;
-                    }
+                }
+            } while (game == 1);
 
-                    turnRotation = 1;
-                    break;
-            }
-        } while (game == 1);
+
 
     }
 
@@ -270,19 +274,49 @@ public class GameController {
                 append("0) Exit\n\n").append("Enter the number of your selection: ").toString();
         int minOption = 0;
         int maxOption = 3;
-        int userChoice = promptForInt(mainMenu, minOption, maxOption);
+        int userChoice;
+
 
         do {
+            userChoice = promptForInt(mainMenu, minOption, maxOption);
             switch (userChoice) {
                 case 1:
                     humanVHuman();
-                    break;
+                    prompt =  promptForInt("Would you like to play again? \n 1: Yes    0: No \n", 0,1);
+                    if(prompt == 0)
+                    {
+                        userChoice = 0;
+                        break;
+                    } else
+                    {
+                        break;
+                    }
+
                 case 2:
                     humanVComp();
-                    break;
+                    prompt =  promptForInt("Would you like to play again? \n 1: Yes    0: No \n", 0,1);
+                    if(prompt == 0)
+                    {
+                        userChoice = 0;
+                        break;
+                    } else
+                    {
+                        break;
+                    }
+
                 case 3:
                     compVComp();
-                    break;
+                    prompt =  promptForInt("Would you like to play again? \n 1: Yes    0: No \n", 0,1);
+                    if(prompt == 0)
+                    {
+                        userChoice = 0;
+                        break;
+                    } else
+                    {
+                        break;
+                    }
+
+
             }
         } while (userChoice > 0);
     }

@@ -29,7 +29,7 @@ public class Board {
         lastIndexH = column;
         lastIndexV = i;
 
-        System.out.println(lastIndexH + ", " + lastIndexV);
+       // System.out.println(lastIndexH + ", " + lastIndexV);
 
 
     }
