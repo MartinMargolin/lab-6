@@ -13,5 +13,4 @@ public interface Player
     void setColor(String a);
 
 
-
 }
