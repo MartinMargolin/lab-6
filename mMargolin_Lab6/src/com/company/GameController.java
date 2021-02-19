@@ -28,7 +28,7 @@ public class GameController {
         String in;
 
 
-        System.out.println("Player one enter name: ");
+        System.out.println("Player one enter name ");
 
         in = input();
         if (!in.equals("")) {
@@ -37,7 +37,7 @@ public class GameController {
             P1.setName("Human1");
         }
 
-        System.out.println("Player two enter name: ");
+        System.out.println("Player two enter name ");
 
         in = input();
         if (!in.equals("")) {
@@ -49,63 +49,58 @@ public class GameController {
         Board board = new Board();
         int game = 1;
         board.printBoard(P1.getName(), P2.getName());
-
-        System.out.println("first test");
         startingPlayer(P1.getName(), P2.getName());
 
-        System.out.println("Its ok here");
 
-        if (turnRotation == 1)
-        {
+        if (turnRotation == 1) {
             P1.setColor("Y");
             P2.setColor("R");
-        } else if (turnRotation == 2)
-        {
+        } else if (turnRotation == 2) {
             P2.setColor("Y");
             P1.setColor("R");
         }
 
 
-            do {
+        do {
 
-                switch (turnRotation) {
+            switch (turnRotation) {
 
-                    case 1:
-                        board.printBoard(P1.getName(), P2.getName());
-                        turn = promptForInt("\n\n" + P1.getName() + " place your piece (1-7): ", 1, 7);
-                        board.placePiece(P1.getColor(), turn);
+                case 1:
+                    board.printBoard(P1.getName(), P2.getName());
+                    turn = promptForInt("\n\n" + P1.getName() + " place your piece (1-7): ", 1, 7);
+                    board.placePiece(P1.getColor(), turn);
 
-                        if (board.checkWinner(P1.getColor())) {
-                            System.out.println("Player:" + P1.getName() + " has won the game!");
-                            game = 0;
-                            break;
-                        }
-
-
-                        turnRotation = 2;
+                    if (board.checkWinner(P1.getColor())) {
+                        System.out.println("Player:" + P1.getName() + " has won the game!");
+                        game = 0;
                         break;
+                    }
 
-                    case 2:
-                        board.printBoard(P1.getName(), P2.getName());
-                        turn = promptForInt("\n\n" + P2.getName() + " place your piece (1-7): ", 1, 7);
-                        board.placePiece(P2.getColor(), turn);
 
-                        if (board.checkWinner(P2.getColor())) {
-                            System.out.println("Player:" + P2.getName() + " has won the game!");
-                            game = 0;
-                            break;
-                        }
+                    turnRotation = 2;
+                    break;
 
-                        turnRotation = 1;
+                case 2:
+                    board.printBoard(P1.getName(), P2.getName());
+                    turn = promptForInt("\n\n" + P2.getName() + " place your piece (1-7): ", 1, 7);
+                    board.placePiece(P2.getColor(), turn);
+
+                    if (board.checkWinner(P2.getColor())) {
+                        System.out.println("Player:" + P2.getName() + " has won the game!");
+                        game = 0;
                         break;
-                }
-            } while (game == 1);
+                    }
+
+                    turnRotation = 1;
+                    break;
+            }
+        } while (game == 1);
 
     }
 
     public void humanVComp() {
         String in;
-        System.out.println("Player one enter name: ");
+        System.out.println("Player one enter name ");
 
         in = input();
         if (!in.equals("")) {
@@ -114,7 +109,7 @@ public class GameController {
             P1.setName("Human1");
         }
 
-        System.out.println("Computer 1 enter name: ");
+        System.out.println("Computer 1 enter name ");
 
         in = input();
         if (!in.equals("")) {
@@ -127,17 +122,16 @@ public class GameController {
         int game = 1;
         board.printBoard(P1.getName(), AIP2.getName());
         startingPlayer(P1.getName(), AIP2.getName());
-        if (turnRotation == 1)
-        {
+
+        if (turnRotation == 1) {
             P1.setColor("Y");
             AIP2.setColor("R");
-        } else if (turnRotation == 2)
-        {
+        } else if (turnRotation == 2) {
             AIP2.setColor("Y");
             P1.setColor("R");
         }
 
-        do{
+        do {
 
             switch (turnRotation) {
 
@@ -177,7 +171,7 @@ public class GameController {
 
     public void compVComp() {
         String in;
-        System.out.println("Computer 1 enter name: ");
+        System.out.println("Computer 1 enter name ");
 
         in = input();
         if (!in.equals("")) {
@@ -186,7 +180,7 @@ public class GameController {
             AIP1.setName("Comp1");
         }
 
-        System.out.println("Computer 2 enter name: ");
+        System.out.println("Computer 2 enter name ");
 
         in = input();
         if (!in.equals("")) {
@@ -197,15 +191,13 @@ public class GameController {
 
         Board board = new Board();
         int game = 1;
-
         board.printBoard(AIP1.getName(), AIP2.getName());
         startingPlayer(AIP1.getName(), AIP2.getName());
-        if (turnRotation == 1)
-        {
+
+        if (turnRotation == 1) {
             AIP1.setColor("Y");
             AIP2.setColor("R");
-        } else if (turnRotation == 2)
-        {
+        } else if (turnRotation == 2) {
             AIP2.setColor("Y");
             AIP1.setColor("R");
         }
@@ -322,7 +314,6 @@ public class GameController {
     }
 
     public void startingPlayer(String p1, String p2) {
-        //WIP brain doesn't really work this morning
         int rng = rng();
         if (rng == 1) {
             System.out.println("\n" + p1 + " goes first");

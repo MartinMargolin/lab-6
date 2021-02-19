@@ -89,15 +89,15 @@ public class Board {
         }
 
         try {
-        for (int i = 0; i < board.length; i++)  // DIAGONAL RIGHT CHECK
-        {
-            for (int j = 0; j < board[i].length - 3; j++) {
-                if (board[i][j] == color && board[i + 1][j + 1] == color && board[i + 2][j + 2] == color && board[i + 3][j + 3] == color) {
-                    winState = true;
+            for (int i = 0; i < board.length; i++)  // DIAGONAL RIGHT CHECK
+            {
+                for (int j = 0; j < board[i].length - 3; j++) {
+                    if (board[i][j] == color && board[i + 1][j + 1] == color && board[i + 2][j + 2] == color && board[i + 3][j + 3] == color) {
+                        winState = true;
+                    }
                 }
             }
-        }
-    } catch (ArrayIndexOutOfBoundsException AIOB) {
+        } catch (ArrayIndexOutOfBoundsException AIOB) {
 
         }
 

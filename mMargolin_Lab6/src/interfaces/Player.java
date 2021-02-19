@@ -1,7 +1,6 @@
 package interfaces;
 
-public interface Player
-{
+public interface Player {
 
 
     String getName();
